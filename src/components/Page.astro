@@ -1,0 +1,114 @@
+---
+import SmoothScroll from './SmoothScroll.tsx';
+import Navbar from './Navbar.tsx';
+import Hero from './Hero.tsx';
+import Manifesto from './Manifesto.tsx';
+import Services from './Services.tsx';
+import Differentials from './Differentials.tsx';
+import Process from './Process.tsx';
+import Experience from './Experience.tsx';
+import Testimonials from './Testimonials.tsx';
+import Faq from './Faq.tsx';
+import Contact from './Contact.tsx';
+import Footer from './Footer.tsx';
+import ConceptBanner from './ConceptBanner.tsx';
+import ScrollProgress from './ScrollProgress.tsx';
+---
+
+<SmoothScroll client:load />
+
+<ScrollProgress client:load />
+<Navbar client:load />
+<Hero client:load />
+<Manifesto client:visible />
+<Services client:visible />
+<Differentials client:visible />
+<Process client:visible />
+<Experience client:visible />
+<Testimonials client:visible />
+<Faq client:visible />
+<Contact client:visible />
+<Footer client:visible />
+<ConceptBanner client:load />
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --color-canvas-dark: #1A130E;
+    --color-canvas-light: #F4EFE6;
+    --color-surface: #2A1F18;
+    --color-surface-elevated: #34281F;
+    --color-text: #F4EFE6;
+    --color-text-muted: #C9B89E;
+    --color-text-dark: #2A1F18;
+    --color-text-dark-muted: #6B5A48;
+    --color-border: rgba(244, 239, 230, 0.12);
+    --color-border-dark: rgba(42, 31, 24, 0.14);
+    --color-accent: #C8956D;
+    --color-accent-deep: #A87651;
+    --color-accent-soft: #E8C9A8;
+    --color-sage: #8A9A82;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --shadow-subtle: 0 1px 2px rgba(26, 19, 14, 0.06), 0 4px 12px rgba(26, 19, 14, 0.08);
+    --shadow-elevated: 0 10px 30px rgba(26, 19, 14, 0.18), 0 30px 60px rgba(26, 19, 14, 0.22);
+  }
+
+  html {
+    padding-top: 0 !important;
+  }
+
+  body {
+    background-color: var(--color-canvas-light);
+    color: var(--color-text-dark);
+    font-family: var(--font-body);
+    padding-top: 0 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Smooth scroll baseline (Lenis handles the rest) */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  /* Selection */
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-canvas-dark);
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Custom scrollbar (desktop) */
+  @media (pointer: fine) {
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--color-canvas-dark); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-accent-deep);
+      border-radius: 999px;
+      border: 2px solid var(--color-canvas-dark);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+  }
+
+  /* Reduced motion: show everything immediately */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
